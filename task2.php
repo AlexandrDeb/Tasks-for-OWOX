@@ -1,15 +1,6 @@
 <?php
 
-abstract class Tariff
-{
 
-    protected $value;
-
-    public function getTariff()
-    {
-        return $this->value;
-    }
-}
 
 abstract class Lessons
 {
@@ -28,6 +19,19 @@ abstract class Lessons
     }
 
 }
+
+abstract class Tariff
+{
+
+    protected $value;
+
+    public function getTariff()
+    {
+        return $this->value;
+    }
+}
+
+
 
 class Speaking extends Lessons
 {
@@ -67,7 +71,7 @@ class Factory
     }
 }
 
-class LessonController
+class LessonMod
 {
     public function create($type)
     {
@@ -88,7 +92,7 @@ $typeLessons = array(
         'amount' => 1
     )
 );
-$lesson = new LessonController();
+$lesson = new LessonMod();
 foreach ($typeLessons as $key => $type) {
     try {
         $obj[] = $lesson->create($type);
